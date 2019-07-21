@@ -5,7 +5,7 @@ axios.defaults.timeout = 300000;
 // axios.defaults.baseURL = process.env.NODE_ENV === "production" ? "/api" : "";
 axios.defaults.baseURL = 'http://127.0.0.1:7001';
 
-/* axios.interceptors.response.use(
+axios.interceptors.response.use(
     res => {
         const result = res.data;
 
@@ -23,7 +23,7 @@ axios.defaults.baseURL = 'http://127.0.0.1:7001';
             window.location.href="/";
         },1000);
     }
-); */
+);
 
 axios.interceptors.request.use(
     config => {
