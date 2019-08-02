@@ -1,29 +1,24 @@
 # apollo
 
-## Project setup
-```
-yarn install
+### Front_H5（移动端、H5框架）
+
+```javascript
+引入依赖：yarn install
+
+启动：yarn run service
+
+打包：yarn run build
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
+
+
+### Front_PC（PC端框架）
+
+```javascript
+引入依赖：npm install
+
+启动：npm run dev
+
+打包：npm run build
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
