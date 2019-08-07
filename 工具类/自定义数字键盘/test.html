@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <style>
+        html, body{
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        span#input{
+            display: inline-block;
+            border-bottom: solid 1px green;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            margin: 20px;
+            background-color: #EFEFEF;
+        }
+        .key-board {
+            background-color: white;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+        }
+        .table-div {
+            width: 100%;
+        }
+        .table-num {
+            width: 100%;
+            border: solid 1px #dedede;
+        }
+        .table-num td {
+            width: 25%;
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: white;
+            height: 54px;
+        }
+        
+        .table-num td:active{
+            background-color: #dedede;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <span id="input"></span>
+    <div class="key-board">
+        <div class="table-div">
+            <table class="table-num" rules=all>
+                <tbody>
+                    <tr>
+                        <td onclick="doKeys(1)">1</td>
+                        <td onclick="doKeys(2)">2</td>
+                        <td onclick="doKeys(3)">3</td>
+                        <td onclick="doKeys('删除')">删除</td>
+                    </tr>
+                    <tr>
+                        <td onclick="doKeys(4)">4</td>
+                        <td onclick="doKeys(5)">5</td>
+                        <td onclick="doKeys(6)">6</td>
+                        <td onclick="doKeys('支付')" rowspan="3">支付</td>
+                    </tr>
+                    <tr>
+                        <td onclick="doKeys(7)">7</td>
+                        <td onclick="doKeys(8)">8</td>
+                        <td onclick="doKeys(9)">9</td>
+                    </tr>
+                    <tr>
+                        <td onclick="doKeys(0)" colspan="2">0</td>
+                        <td onclick="doKeys('.')">.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+<script>
+    var inputText = "",
+    currText;
+
+    function doKeys(e) {
+        currText = e;
+
+        inputText = inputText === '0' ? '' : inputText;
+        switch(currText) {
+            case '-':
+            inputText = inputText.indexOf('-') === -1 ? '-' + inputText : inputText.slice(1);
+            break;
+            case '.':
+            inputText = inputText ? inputText === '-' ? inputText = '-0.' : (inputText.indexOf('.') === -1 ? inputText + '.' : inputText) : '0.';
+            break;
+            case '删除':
+            inputText = inputText ? inputText.slice(0, -1) : '';
+            break;
+            default:
+            inputText = inputText === '-0' ? '-' : inputText;
+            inputText += currText;
+            break;
+        }
+        document.getElementById("input").innerHTML = inputText;
+    }
+</script>
+</html>
